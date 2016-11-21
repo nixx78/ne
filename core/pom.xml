@@ -68,6 +68,7 @@
 			<groupId>org.apache.derby</groupId>
 			<artifactId>derbynet</artifactId>
 			<version>${derby.version}</version>
+			<scope>provided</scope>
 		</dependency>
 
 		<dependency>
