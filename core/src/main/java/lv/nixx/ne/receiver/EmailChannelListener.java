@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 import lv.nixx.ne.rest.model.InMessage;
 
 @Component
-//@RabbitListener(queues="email-channel-queue", containerFactory="emailChannelContainerFactory")
+@RabbitListener(queues="email-channel-queue", containerFactory="emailChannelContainerFactory")
 @RabbitListener(queues="email-channel-queue")
 public class EmailChannelListener {
 	

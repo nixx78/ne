@@ -81,14 +81,13 @@ public class AmpqConfig {
 		// There, we can add queue/buinding on fly, or using properties
 	}
 	
-//	@Bean
-//	SimpleRabbitListenerContainerFactory emailChannelContainerFactory() {
-//		SimpleRabbitListenerContainerFactory factory = new SimpleRabbitListenerContainerFactory();
-//		factory.setConnectionFactory(connectionFactory());
-//		factory.setConcurrentConsumers(2);
-//		return factory;
-//	}
-
+	@Bean
+	SimpleRabbitListenerContainerFactory emailChannelContainerFactory() {
+		SimpleRabbitListenerContainerFactory factory = new SimpleRabbitListenerContainerFactory();
+		factory.setConnectionFactory(connectionFactory());
+		factory.setConcurrentConsumers(2);
+		return factory;
+	}
 
 }
 

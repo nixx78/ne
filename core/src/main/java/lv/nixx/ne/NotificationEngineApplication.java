@@ -10,13 +10,13 @@ public class NotificationEngineApplication extends SpringBootServletInitializer{
 	public static void main(String[] args) {
 		new SpringApplicationBuilder()
 			.sources(NotificationEngineApplication.class)
-			.profiles("NetworkDB")
+			.profiles("EmbededDB")
 			.run(args);
 	}
 
 	@Override
 	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
-		application.profiles("NetworkDB");
+		application.profiles("Production");
 		return application.sources(NotificationEngineApplication.class);
 	}
 }
