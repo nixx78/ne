@@ -2,9 +2,8 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<artifactId>model</artifactId>
+	<artifactId>integration.test</artifactId>
 	<packaging>jar</packaging>
-	<name>model</name>
 
 	<parent>
 		<groupId>lv.nixx.ne</groupId>
@@ -15,9 +14,22 @@
 	<dependencies>
 
 		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-data-jpa</artifactId>
+			<groupId>lv.nixx.ne</groupId>
+			<artifactId>core</artifactId>
+			<version>${ne.current.version}</version>
 		</dependency>
-
+		
+		<dependency>
+    	    <groupId>org.springframework.boot</groupId>
+        	<artifactId>spring-boot-starter-web</artifactId>
+	    </dependency>
+		
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+		
 	</dependencies>
+	
 </project>

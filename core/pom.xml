@@ -3,37 +3,20 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<artifactId>core</artifactId>
-	<packaging>war</packaging>
+	<packaging>jar</packaging>
 
 	<parent>
 		<groupId>lv.nixx.ne</groupId>
 		<artifactId>ne-parent</artifactId>
-		<version>0.0.1-SNAPSHOT</version>
+ 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
-
-	<properties>
-		<start-class>lv.nixx.ne.NotificationEngineApplication</start-class>
-		<derby.version>10.11.1.1</derby.version>
-		<eclipselink.version>2.6.4</eclipselink.version>
-	</properties>
 
 	<dependencies>
 
 		<dependency>
 			<groupId>lv.nixx.ne</groupId>
-			<artifactId>model</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
-		</dependency>
-
-		<dependency>
-			<groupId>lv.nixx.ne</groupId>
 			<artifactId>persistence</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
-		</dependency>
-
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-data-rest</artifactId>
+			<version>${ne.current.version}</version>
 		</dependency>
 
 		<dependency>
@@ -42,102 +25,10 @@
 		</dependency>
 
 		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-tomcat</artifactId>
-			<scope>provided</scope>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-web</artifactId>
 		</dependency>
-
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-test</artifactId>
-			<scope>test</scope>
-		</dependency>
-
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-data-jpa</artifactId>
-			<exclusions>
-				<exclusion>
-					<groupId>org.hibernate</groupId>
-					<artifactId>hibernate-entitymanager</artifactId>
-				</exclusion>
-			</exclusions>
-		</dependency>
-
-		<dependency>
-			<groupId>org.apache.derby</groupId>
-			<artifactId>derbynet</artifactId>
-			<version>${derby.version}</version>
-			<scope>provided</scope>
-		</dependency>
-
-		<dependency>
-			<groupId>org.apache.derby</groupId>
-			<artifactId>derbyclient</artifactId>
-			<version>${derby.version}</version>
-		</dependency>
-
-		<dependency>
-			<groupId>org.eclipse.persistence</groupId>
-			<artifactId>org.eclipse.persistence.jpa</artifactId>
-			<version>${eclipselink.version}</version>
-		</dependency>
-
-
-		<dependency>
-			<groupId>javax.jdo</groupId>
-			<artifactId>jdo-api</artifactId>
-			<version>3.0.1</version>
-		</dependency>
+ 
 	</dependencies>
-
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-			</plugin>
-
-			<!-- Static weaver for EclipseLink -->
-			<plugin>
-				<groupId>com.ethlo.persistence.tools</groupId>
-				<artifactId>eclipselink-maven-plugin</artifactId>
-				<version>1.1-SNAPSHOT</version>
-				<executions>
-					<execution>
-						<phase>process-classes</phase>
-						<goals>
-							<goal>weave</goal>
-						</goals>
-					</execution>
-				</executions>
-
-				<dependencies>
-					<dependency>
-						<groupId>org.eclipse.persistence</groupId>
-						<artifactId>org.eclipse.persistence.jpa</artifactId>
-						<version>${eclipselink.version}</version>
-					</dependency>
-				</dependencies>
-
-			</plugin>
-
-		</plugins>
-	</build>
-
-
-	<repositories>
-		<repository>
-			<id>com.ethlo.eclipselink.tools</id>
-			<url>http://ethlo.com/maven</url>
-		</repository>
-	</repositories>
-
-	<pluginRepositories>
-		<pluginRepository>
-			<id>com.ethlo.eclipselink.tools</id>
-			<url>http://ethlo.com/maven</url>
-		</pluginRepository>
-	</pluginRepositories>
 
 </project>

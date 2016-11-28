@@ -77,11 +77,6 @@ public class AmpqConfig {
 	}
 	
 	@Bean
-	void config(RabbitAdmin ampqAdmin) {
-		// There, we can add queue/buinding on fly, or using properties
-	}
-	
-	@Bean
 	SimpleRabbitListenerContainerFactory emailChannelContainerFactory() {
 		SimpleRabbitListenerContainerFactory factory = new SimpleRabbitListenerContainerFactory();
 		factory.setConnectionFactory(connectionFactory());

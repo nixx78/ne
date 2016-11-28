@@ -12,12 +12,100 @@
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
 
+	<properties>
+		<eclipselink.version>2.6.4</eclipselink.version>
+	</properties>
+
 	<dependencies>
+
 		<dependency>
 			<groupId>lv.nixx.ne</groupId>
 			<artifactId>model</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
+			<version>${ne.current.version}</version>
 		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+			<exclusions>
+				<exclusion>
+					<groupId>org.hibernate</groupId>
+					<artifactId>hibernate-entitymanager</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.derby</groupId>
+			<artifactId>derbynet</artifactId>
+			<version>${derby.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.derby</groupId>
+			<artifactId>derbyclient</artifactId>
+			<version>${derby.version}</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.eclipse.persistence</groupId>
+			<artifactId>org.eclipse.persistence.jpa</artifactId>
+			<version>${eclipselink.version}</version>
+		</dependency>
+
+<!-- 
+		<dependency>
+			<groupId>javax.jdo</groupId>
+			<artifactId>jdo-api</artifactId>
+			<version>3.0.1</version>
+		</dependency>
+ -->
+ 
 	</dependencies>
+	
+		<build>
+		<plugins>
+			<!-- Static weaver for EclipseLink -->
+			<plugin>
+				<groupId>com.ethlo.persistence.tools</groupId>
+				<artifactId>eclipselink-maven-plugin</artifactId>
+				<version>1.1-SNAPSHOT</version>
+				<executions>
+					<execution>
+						<phase>process-classes</phase>
+						<goals>
+							<goal>weave</goal>
+						</goals>
+					</execution>
+				</executions>
+
+				<dependencies>
+					<dependency>
+						<groupId>org.eclipse.persistence</groupId>
+						<artifactId>org.eclipse.persistence.jpa</artifactId>
+						<version>${eclipselink.version}</version>
+					</dependency>
+				</dependencies>
+
+			</plugin>
+
+		</plugins>
+	</build>
+
+
+	<repositories>
+		<repository>
+			<id>com.ethlo.eclipselink.tools</id>
+			<url>http://ethlo.com/maven</url>
+		</repository>
+	</repositories>
+
+	<pluginRepositories>
+		<pluginRepository>
+			<id>com.ethlo.eclipselink.tools</id>
+			<url>http://ethlo.com/maven</url>
+		</pluginRepository>
+	</pluginRepositories>
+	
 
 </project>

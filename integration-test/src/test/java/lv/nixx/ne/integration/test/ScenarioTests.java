@@ -1,4 +1,4 @@
-package lv.nixx.ne.rest.tester;
+package lv.nixx.ne.integration.test;
 
 import static org.junit.Assert.*;
 
@@ -30,8 +30,6 @@ import lv.nixx.ne.rest.model.*;
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = TestApplication.class, webEnvironment = WebEnvironment.DEFINED_PORT)
 @ActiveProfiles(profiles="EmbededDB")
-
-// TODO Move this into integration test project
 public class ScenarioTests {
 
 	private static final String EMAIL_CHANNEL = "email.channel";

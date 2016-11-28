@@ -1,4 +1,4 @@
-package lv.nixx.ne.config;
+package lv.nixx.ne.persistence.config;
 
 import java.util.Collections;
 import java.util.HashMap;

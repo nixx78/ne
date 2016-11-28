@@ -1,4 +1,4 @@
-package lv.nixx.ne.rest.tester;
+package lv.nixx.ne.integration.test;
 
 import static org.junit.Assert.*;
 
