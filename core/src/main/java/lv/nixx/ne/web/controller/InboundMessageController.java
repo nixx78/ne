@@ -5,12 +5,12 @@ import java.util.Date;
 import java.util.UUID;
 
 import org.slf4j.*;
-import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import lv.nixx.ne.model.Message;
 import lv.nixx.ne.persistence.MessageDAO;
+import lv.nixx.ne.queue.QueueService;
 import lv.nixx.ne.rest.model.*;
 
 @RestController
@@ -20,7 +20,7 @@ public class InboundMessageController {
 	private Logger log = LoggerFactory.getLogger(InboundMessageController.class);
 	
 	@Autowired
-	private RabbitTemplate rabbitTemplate;
+	private QueueService queueService;
 	
 	@Autowired
 	private MessageDAO dao;
@@ -40,7 +40,8 @@ public class InboundMessageController {
 		dao.saveMessage(dbMessage);
 
 		log.info("Request with message " + inMessage);
-		rabbitTemplate.convertAndSend("inbound-message-queue", inMessage);
+
+		queueService.sendMessageToInboundQueue(inMessage);
 		
 		return new MessageResponse(inMessage.getCorrelationId(), inMessage.getSenderId());
 	}

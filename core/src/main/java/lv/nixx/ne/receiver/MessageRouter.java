@@ -3,12 +3,12 @@ package lv.nixx.ne.receiver;
 import org.slf4j.*;
 import org.springframework.amqp.rabbit.annotation.RabbitHandler;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
-import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import lv.nixx.ne.model.Status;
 import lv.nixx.ne.persistence.MessageDAO;
+import lv.nixx.ne.queue.QueueService;
 import lv.nixx.ne.rest.model.InMessage;
 
 @Component
@@ -21,7 +21,7 @@ public class MessageRouter {
 	private MessageDAO dao;
 	
 	@Autowired
-	private RabbitTemplate rabbitTemplate;
+	private QueueService queueService;
 	
 	@RabbitHandler
 	public void receiveMessage(InMessage message) {
@@ -30,7 +30,7 @@ public class MessageRouter {
 		String routingKey = message.getChannel();
 		dao.setMessageState(message.getCorrelationId(), Status.ROUTED);
 		
-		rabbitTemplate.convertAndSend("outgoing-message-exchange", routingKey, message);
+		queueService.sendMessageToOutboundQueue(routingKey, message);
 	}
 
 }
