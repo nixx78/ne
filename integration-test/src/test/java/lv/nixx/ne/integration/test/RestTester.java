@@ -51,7 +51,7 @@ public class RestTester {
 	}
 
 	private ResponseEntity<MessageResponse> sendToRest(InMessage m) {
-		return rt.postForEntity("http://localhost:8080/ne/inbound", m, MessageResponse.class);
+		return rt.postForEntity("http://localhost:8080/ne/rest/inbound", m, MessageResponse.class);
 	}
 
 	private String getSenderRef() {

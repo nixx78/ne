@@ -18,7 +18,7 @@
 			<pattern>${PATTERN}</pattern>
 		</encoder>
 		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-			<fileNamePattern>${LOG_DIR}/{LOG_FILE_NAME}.%d{yyyy-MM-dd}.%i.log
+			<fileNamePattern>${LOG_DIR}/old.log.%d{yyyy-MM-dd}.%i.log
 			</fileNamePattern>
 			<timeBasedFileNamingAndTriggeringPolicy
 				class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">

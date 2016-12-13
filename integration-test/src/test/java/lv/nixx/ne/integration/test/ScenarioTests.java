@@ -34,7 +34,7 @@ public class ScenarioTests {
 
 	private static final String EMAIL_CHANNEL = "email.channel";
 	private static final String SMS_CHANNEL = "sms.channel";
-	private static final String URL_PREFIX = "http://localhost:8080/ne/";
+	private static final String URL_PREFIX = "http://localhost:8080/ne/rest";
 
 	private final RestTemplate rt = new RestTemplate();
 	

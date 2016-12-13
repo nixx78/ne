@@ -1,4 +1,4 @@
-package lv.nixx.ne.web.controller;
+package lv.nixx.ne.core.rest;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -14,7 +14,7 @@ import lv.nixx.ne.queue.QueueService;
 import lv.nixx.ne.rest.model.*;
 
 @RestController
-@RequestMapping("/ne")
+@RequestMapping("/ne/rest")
 public class InboundMessageController {
 	
 	private Logger log = LoggerFactory.getLogger(InboundMessageController.class);

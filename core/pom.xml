@@ -8,8 +8,12 @@
 	<parent>
 		<groupId>lv.nixx.ne</groupId>
 		<artifactId>ne-parent</artifactId>
- 		<version>0.0.1-SNAPSHOT</version>
+		<version>0.0.1-SNAPSHOT</version>
 	</parent>
+	
+	<properties>
+		<swagger.version>2.6.1</swagger.version>
+	</properties>
 
 	<dependencies>
 
@@ -28,7 +32,20 @@
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-web</artifactId>
 		</dependency>
- 
+
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger2</artifactId>
+			<version>${swagger.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger-ui</artifactId>
+			<version>${swagger.version}</version>
+		</dependency>
+
+
 	</dependencies>
 
 </project>

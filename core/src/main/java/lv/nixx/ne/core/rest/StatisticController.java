@@ -1,4 +1,4 @@
-package lv.nixx.ne.web.controller;
+package lv.nixx.ne.core.rest;
 
 import java.util.List;
 
@@ -12,7 +12,7 @@ import lv.nixx.ne.model.Message;
 import lv.nixx.ne.persistence.MessageDAO;
 
 @RestController
-@RequestMapping("/ne/statistic")
+@RequestMapping("/ne/rest/statistic")
 public class StatisticController {
 
 	@Autowired

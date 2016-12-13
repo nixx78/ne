@@ -22,6 +22,12 @@
 			<artifactId>core</artifactId>
 			<version>${ne.current.version}</version>
 		</dependency>
+
+		<dependency>
+			<groupId>lv.nixx.ne</groupId>
+			<artifactId>gui-web</artifactId>
+			<version>${ne.current.version}</version>
+		</dependency>
 		
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
