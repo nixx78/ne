@@ -1,3 +1,43 @@
-<p>
-  post-message works!
-</p>
+<div>
+  <table>
+        <tr>
+          <td  align="right">
+            <label id="ref">Sender id: </label>
+          </td>
+          <td>
+             <input [(ngModel)]="message.senderId" placeholder="ref"/>
+          </td>  
+        </tr>  
+        <tr>
+          <td  align="right">
+            <label id="channel">Channel: </label>
+          </td>
+          <td>
+            <input [(ngModel)]="message.channel" placeholder="channel" />
+          </td>
+        </tr>
+
+
+        <tr>
+          <td  align="right">
+            <label id="body">Body: </label>
+          </td>
+          <td>
+            <textarea [(ngModel)]="message.body" rows="4" cols="50" placeholder="body" id="body_textarrea">
+                Sample body
+            </textarea>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+          </td>
+          <td>
+            <button (click)="sendMessage()">Send message</button>
+          </td>  
+        </tr>
+  </table>   
+</div>
+
+
+

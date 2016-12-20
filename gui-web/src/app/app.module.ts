@@ -9,6 +9,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { PostMessageComponent } from './post-message/post-message.component';
 import { MessageBrowserComponent } from './message-browser/message-browser.component';
 
+import { NeService } from './neservice';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,7 +24,7 @@ import { MessageBrowserComponent } from './message-browser/message-browser.compo
     HttpModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [NeService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
