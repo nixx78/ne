@@ -3,7 +3,7 @@ import { Component }          from '@angular/core';
 @Component({
   selector: 'dashboard-ne',
   template: `
-    <h1>{{title}}</h1>
+    <h1>Notification engine</h1>
     <nav>
       <a routerLink="/dashboard" routerLinkActive="active">Dashboard</a>
       <a routerLink="/post_message" routerLinkActive="active">Message gateway</a>
@@ -15,6 +15,5 @@ import { Component }          from '@angular/core';
 })
 
 export class AppComponent {
-  title = 'Notification engine';
 }
 

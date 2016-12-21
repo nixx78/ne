@@ -37,6 +37,9 @@ public class InboundMessageController {
 		
 		Message dbMessage = new Message(inMessage.getCorrelationId(), inMessage.getSenderId(), "Source");
 		dbMessage.setChannel(inMessage.getChannel());
+		dbMessage.setTimestamp(new Date());
+		dbMessage.setSourceBody(inMessage.getBody());
+		
 		dao.saveMessage(dbMessage);
 
 		log.info("Request with message " + inMessage);

@@ -1,5 +1,7 @@
 package lv.nixx.ne.model;
 
+import java.util.Date;
+
 import javax.persistence.*;
 
 @Entity
@@ -10,7 +12,6 @@ import javax.persistence.*;
 })
 public class Message {
 	
-
 	@Id
 	@Column(name="correlation_id", columnDefinition="VARCHAR(100)")
 	private String id;
@@ -27,6 +28,12 @@ public class Message {
 	@Column(name="status")
 	@Enumerated(EnumType.STRING)
 	private Status status = Status.NEW;
+	
+	@Column(name="input_datetime")
+	private Date timestamp;
+
+	@Column(name="source_body")
+	private String sourceBody;
 	
 	public Message() {
 	}
@@ -75,6 +82,22 @@ public class Message {
 
 	public Status getStatus() {
 		return status;
+	}
+	
+	public Date getTimestamp() {
+		return timestamp;
+	}
+
+	public void setTimestamp(Date timestamp) {
+		this.timestamp = timestamp;
+	}
+	
+	public void setSourceBody(String body) {
+		this.sourceBody = body;
+	}
+	
+	public String getSourceBody() {
+		return sourceBody;
 	}
 
 	@Override

@@ -1,28 +1,13 @@
-/*
-table {
-  border-collapse: separate;
-  border-spacing: 0;
-  font: 14px/1.4 "Helvetica Neue", Helvetica, Arial, sans-serif;
+nav a {
+  padding: 5px 10px;
+  text-decoration: none;
+  margin-top: 10px;
+  display: inline-block;
+  background-color: #eee;
+  border-radius: 4px;
 }
 
-th, td {
-  padding: 10px 15px;
-  vertical-align: top;
+nav a.active {
+  color: #039be5;
+  background-color: #bbbbbb;
 }
-
-.data_row:hover {
-  background-color: #9292ef;
-}
-
-
-td {
-  border-bottom: 0px;
-  border-right: 0px;
-}
-
-.selected {
-  background-color: #c4c4ed !important;
-  color: white;
-}
-*/
-

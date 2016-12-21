@@ -15,7 +15,7 @@ public class EmbededDBConfig {
 	@Bean
 	public DataSource dataSource() {
 		EmbeddedDataSource ds = new EmbeddedDataSource();
-		ds.setDatabaseName("derbyDB");
+		ds.setDatabaseName("NotificationEngineDB");
 		ds.setCreateDatabase("create");
 		
 		return ds;

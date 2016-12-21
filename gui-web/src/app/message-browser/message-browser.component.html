@@ -1,3 +1,37 @@
-<p>
-  message-browser works!
-</p>
+<div>
+  <p>Text</p>
+</div>
+
+<div>
+
+  <table>
+    <thead>
+      <tr>
+        <th id="first">Id</th>
+        <th>SenderId</th>
+        <th>Source</th>
+        <th>Channel</th>
+        <th>Status</th>
+        <th>Timestamp</th>
+      </tr>
+    </thead>  
+    <tbody>
+      <tr *ngFor="let message of messages"  (click)="onSelect(message)" class="data_row" [class.selected]="message == selectedMessage">
+        <td id="first">{{message.id}}</td>
+        <td>{{message.senderId}}</td>
+        <td>{{message.source}}</td>
+        <td>{{message.channel}}</td>
+        <td>{{message.status}}</td>
+        <td>{{message.timestamp | date:'dd.MM.yyyy HH:mm:ss.ss'}}</td>
+      </tr>
+    </tbody>
+   </table>
+
+</div>
+
+<div>
+  <p>Body</p>
+  <textarea [(ngModel)]="selectedMessage.sourceBody" rows="4" cols="50" placeholder="body" id="body_textarrea">
+      Sample body
+  </textarea>
+</div>
