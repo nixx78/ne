@@ -33,11 +33,14 @@ public class InboundMessageController {
 	@RequestMapping(method=RequestMethod.POST, value ="/inbound")
 	public @ResponseBody MessageResponse processInboundMessage(@RequestBody InMessage inMessage) {
 
+		final Date timestamp = new Date();
+		
 		inMessage.setCorrelationId(UUID.randomUUID().toString());
 		
-		Message dbMessage = new Message(inMessage.getCorrelationId(), inMessage.getSenderId(), "Source");
+		Message dbMessage = new Message(inMessage.getCorrelationId(), inMessage.getSenderId(), inMessage.getSource());
 		dbMessage.setChannel(inMessage.getChannel());
-		dbMessage.setTimestamp(new Date());
+
+		dbMessage.setTimestamp(timestamp);
 		dbMessage.setSourceBody(inMessage.getBody());
 		
 		dao.saveMessage(dbMessage);
@@ -46,7 +49,7 @@ public class InboundMessageController {
 
 		queueService.sendMessageToInboundQueue(inMessage);
 		
-		return new MessageResponse(inMessage.getCorrelationId(), inMessage.getSenderId());
+		return new MessageResponse(timestamp, inMessage.getCorrelationId(), inMessage.getSenderId());
 	}
 
 }

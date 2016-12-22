@@ -1,5 +1,12 @@
 <div>
-  <p>Text</p>
+  <label id="channel">Channel: </label>
+  <input type="text" placeholder="channel" list="channels" />
+  <channel-selector></channel-selector>
+
+  <label id="source">Source: </label>
+  <input type="text" placeholder="source" list="sources" />
+  <source-selector></source-selector>
+
 </div>
 
 <div>
@@ -31,7 +38,8 @@
 
 <div>
   <p>Body</p>
-  <textarea [(ngModel)]="selectedMessage.sourceBody" rows="4" cols="50" placeholder="body" id="body_textarrea">
+  <!-- <textarea [(ngModel)]="selectedMessage?.sourceBody" rows="4" cols="50" placeholder="body" id="body_textarrea"> -->
+  <textarea value="{{selectedMessage?.sourceBody}}" rows="4" cols="50" placeholder="body" id="body_textarrea">
       Sample body
   </textarea>
 </div>

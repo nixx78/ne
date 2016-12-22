@@ -1,11 +1,15 @@
 import { Injectable }    from '@angular/core';
-import { Headers, Http } from '@angular/http';
+import { Http, Response, Headers } from '@angular/http';
+
+import { Observable }    from 'rxjs';
 import { environment } from '../environments/environment';
 
 import 'rxjs/add/operator/toPromise';
 
 import { InMessage } from './inmessage';
 import { Message } from './message';
+import { MessageResponse } from './messageresponse';
+import { ValuesForControls }  from './valuesforcontrols';
 
 @Injectable()
 export class NeService {
@@ -15,23 +19,28 @@ export class NeService {
   
   constructor(private http: Http) { }
 
-  sendMessage(inMessage: InMessage): Promise<null> {
+  sendMessage(inMessage: InMessage): Observable<MessageResponse> {
     const url = `${this.neRestUrl}/inbound`;
     return this.http
       .post(url, JSON.stringify(inMessage), {headers: this.headers})
-      .toPromise()
-      .then(() => null)
+      .map((res:Response) => res.json() as MessageResponse)
       .catch(this.handleError);
   }
 
-  getAllMessages(): Promise<Message[]> {
+  getAllMessages(): Observable<Message[]> {
     const url = `${this.neRestUrl}/statistic/messages`;
-    return this.http
-      .get(url)
-      .toPromise()
-      .then(response => response.json() as Message[])
+    return this.http.get(url)
+      .map((res:Response) => res.json() as Message[])
       .catch(this.handleError);
   }
+
+  getValuesForControls(): Observable<ValuesForControls> {
+    const url = `${this.neRestUrl}/statistic/values_for_controls`;
+    return this.http.get(url)
+        .map((res:Response) => res.json() as ValuesForControls[])
+        .catch(this.handleError);
+  }
+
 
   private handleError(error: any): Promise<any> {
     console.error('An error occurred', error); // for demo purposes only

@@ -1,17 +1,20 @@
 package lv.nixx.ne.rest.model;
 
+import java.util.Date;
 
 public class MessageResponse {
 	
 	private String correlationId = null;
 	private String senderId;
+	private Date timestamp;
 	
 	public MessageResponse() {
 	}
 	
-	public MessageResponse(String correlationId, String senderId) {
+	public MessageResponse(Date timestamp, String correlationId, String senderId) {
 		this.senderId = senderId;
 		this.correlationId = correlationId;
+		this.timestamp = timestamp;
 	}
 	
 	public String getId() {
@@ -36,6 +39,10 @@ public class MessageResponse {
 
 	public void setSenderId(String senderId) {
 		this.senderId = senderId;
+	}
+	
+	public Date getTimestamp() {
+		return timestamp;
 	}
 
 	@Override

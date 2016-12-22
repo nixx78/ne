@@ -13,10 +13,20 @@
             <label id="channel">Channel: </label>
           </td>
           <td>
-            <input [(ngModel)]="message.channel" placeholder="channel" />
+            <input type="text" [(ngModel)]="message.channel" placeholder="channel" list="channels" />
+            <channel-selector></channel-selector>
           </td>
         </tr>
 
+        <tr>
+          <td  align="right">
+            <label id="source">Source: </label>
+          </td>
+          <td>
+            <input type="text" [(ngModel)]="message.source" placeholder="source" list="sources" />
+            <source-selector></source-selector>
+          </td>
+        </tr>
 
         <tr>
           <td  align="right">
@@ -38,6 +48,14 @@
         </tr>
   </table>   
 </div>
+
+
+<div>
+ <label id="ref">Sender id: </label> <input value="{{lastMessageResponse?.senderId}}" placeholder="ref" readonly />
+ <label id="timestamp">Timestamp: </label> <input value="{{lastMessageResponse?.timestamp | date:'dd.MM.yyyy HH:mm:ss.ss'}}" placeholder="timestamp" readonly/>
+ <label id="cid">CorrelationId: </label> <input value="{{lastMessageResponse?.correlationId}}" placeholder="cid" readonly/>
+</div>
+
 
 
 

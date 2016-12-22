@@ -10,6 +10,7 @@ public class InMessage implements Serializable {
 	private String body;
 	private String channel;
 	private String correlationId;
+	private String source;
 	
 	public InMessage(){
 	}
@@ -38,6 +39,10 @@ public class InMessage implements Serializable {
 	
 	public String getChannel() {
 		return channel;
+	}
+	
+	public String getSource() {
+		return source;
 	}
 
 	@Override

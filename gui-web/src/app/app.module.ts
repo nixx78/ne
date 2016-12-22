@@ -1,3 +1,5 @@
+import './rxjs-extensions';
+                           
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -10,13 +12,17 @@ import { PostMessageComponent } from './post-message/post-message.component';
 import { MessageBrowserComponent } from './message-browser/message-browser.component';
 
 import { NeService } from './neservice';
+import { ChannelSelectorComponent } from './channel-selector/channel-selector.component';
+import { SourceSelectorComponent } from './source-selector/source-selector.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DashboardComponent,
     PostMessageComponent,
-    MessageBrowserComponent
+    MessageBrowserComponent,
+    ChannelSelectorComponent,
+    SourceSelectorComponent
   ],
   imports: [
     BrowserModule,

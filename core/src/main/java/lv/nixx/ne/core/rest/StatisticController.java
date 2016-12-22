@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import lv.nixx.ne.model.Message;
+import lv.nixx.ne.model.ValuesForControls;
 import lv.nixx.ne.persistence.MessageDAO;
 
 @RestController
@@ -21,6 +22,11 @@ public class StatisticController {
 	@RequestMapping(method = RequestMethod.GET, value = "/messages")
 	public @ResponseBody List<Message> getAllMessages() {
 		return dao.getAllMessages();
+	}
+	
+	@RequestMapping(method = RequestMethod.GET, value="values_for_controls" )
+	public @ResponseBody ValuesForControls getValuesForControls() {
+		return dao.getValuesForControls();
 	}
 
 }

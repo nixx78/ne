@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+
 import { NeService} from '../neservice';
 import { Message} from '../message';
 
@@ -18,7 +19,7 @@ export class MessageBrowserComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.neService.getAllMessages().then(messages => this.messages = messages);
+    this.neService.getAllMessages().subscribe(messages => {this.messages = messages; this.onSelect(this.messages[0]);});
   }
 
   onSelect(message:Message) :void {

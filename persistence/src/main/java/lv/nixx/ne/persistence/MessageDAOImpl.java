@@ -13,6 +13,7 @@ import org.springframework.stereotype.Component;
 
 import lv.nixx.ne.model.Message;
 import lv.nixx.ne.model.Status;
+import lv.nixx.ne.model.ValuesForControls;
 
 @Component
 @Transactional
@@ -42,8 +43,17 @@ public class MessageDAOImpl implements MessageDAO {
 	
 	@Override
 	public List<Message> getAllMessages() {
-		TypedQuery<Message> tq = em.createNamedQuery("Message.getAll", Message.class);
+		final TypedQuery<Message> tq = em.createNamedQuery("Message.getAll", Message.class);
 		return tq.getResultList();
+	}
+
+	@Override
+	@SuppressWarnings("unchecked")
+	public ValuesForControls getValuesForControls() {
+		Query sourceQuery = em.createNativeQuery("Select distinct Source from ne_message");
+		Query channelQuery = em.createNativeQuery("Select distinct Channel from ne_message");
+		
+		return new ValuesForControls(channelQuery.getResultList(), sourceQuery.getResultList());
 	}
 
 }
